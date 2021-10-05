@@ -27,8 +27,10 @@
         copy($_FILES['curriculum']['tmp_name'], $_FILES['curriculum']['name']);
         $_SESSION["foto"][]= $_FILES['foto']['name'];
         $_SESSION["curriculum"][]=$_FILES['curriculum']['name'];
-        $cicles=[];
-        $_SESSION["curs"]=[];
+        $cicles=array();
+        if(!isset($_SESSION["curs"])){
+            $_SESSION["curs"]=array();
+        }        
         if(isset($_REQUEST["CFGS_DAM"])){  // HAS CHEKEJAT DAM?
             $cicles[]=$_REQUEST["CFGS_DAM"];  //AFEGIR AL ARRAY
         }
@@ -41,7 +43,7 @@
         if(isset($_REQUEST["CFGS_AUTO"])){
             $cicles[]=$_REQUEST["CFGS_AUTO"];
         }
-        $_SESSION["curs"][]=$cicles;
+        array_push($_SESSION["curs"],$cicles);
     
 ?>
     <table class="table">
@@ -60,6 +62,8 @@
         </tr>
         
             <?php
+var_dump($_SESSION['curs']);
+            
 for ($i=0; $i < sizeof($_SESSION['nom']); $i++) { 
 
 echo "<tr>";
@@ -83,7 +87,6 @@ echo "</tr>";
 
 }
     }
-    session_destroy();
 ?>
         
     </table>
