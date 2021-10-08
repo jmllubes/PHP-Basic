@@ -128,6 +128,12 @@ if($_SESSION["usuari"]=="admin"){
   echo "</div>";
 
 }
+else{
+  echo "<div class=\"row container mt-5 mb-5\">";
+  include "views/mostrar.php";
+  echo "</div>";
+
+}
   ?>
 
 
