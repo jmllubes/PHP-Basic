@@ -28,8 +28,8 @@
         $_SESSION["foto"][]= $_FILES['foto']['name'];
         $_SESSION["curriculum"][]=$_FILES['curriculum']['name'];
         $cicles=array();
-        if(!isset($_SESSION["curs"])){
-            $_SESSION["curs"]=array();
+        if(!isset($_SESSION["curs"])){ //comprova si ja existeix la variable session curs
+            $_SESSION["curs"]=array(); //la crea si no existeix, la primera vegada
         }        
         if(isset($_REQUEST["CFGS_DAM"])){  // HAS CHEKEJAT DAM?
             $cicles[]=$_REQUEST["CFGS_DAM"];  //AFEGIR AL ARRAY
