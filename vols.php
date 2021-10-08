@@ -4,7 +4,9 @@
 <title>Page Title</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <style>
 * {
   box-sizing: border-box;
 }
@@ -112,18 +114,25 @@ body {
 </div>
 
 <!-- The flexible grid (content) -->
-<div class="row">
 
-  <div class="main">
-    <h2>TITLE HEADING</h2>
-    <h5>Title description, Dec 7, 2017</h5>
-    <div class="fakeimg" style="height:200px;">Image</div>
-    
-  </div>
-</div>
+<?php
+if($_SESSION["usuari"]=="admin"){
+  echo "<div class=\"row container mt-5 mb-5\">";
+  include "views/afegir.php";
+  echo "</div>";
+  echo "<div class=\"row container mt-5 mb-5\">";
+  include "views/mostrar.php";
+  echo "</div>";
+  echo "<div class=\"row container mt-5 mb-5\">";
+  include "views/eliminar.php";
+  echo "</div>";
+
+}
+  ?>
+
 
 <!-- Footer -->
-<div class="footer">
+<div class="footer container mt-5 mb-5">
   <h2>Footer</h2>
 </div>
 
