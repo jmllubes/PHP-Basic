@@ -89,7 +89,8 @@ body {
 </style>
 </head>
 <body>
-
+<?php     session_start();
+?>
 <!-- Header -->
 <div class="header">
   <h1>Vols</h1>
@@ -99,7 +100,6 @@ body {
 <!-- Navigation Bar -->
 <div class="navbar">
     <?php
-    session_start();
     if($_SESSION["usuari"]=="admin"){
   echo "<a href=\"#\">Afegir vols</a>";
   echo "<a href=\"#\">Mostrar vols</a>";
@@ -119,6 +119,7 @@ body {
 if($_SESSION["usuari"]=="admin"){
   echo "<div class=\"row container mt-5 mb-5\">";
   include "views/afegir.php";
+  
   echo "</div>";
   echo "<div class=\"row container mt-5 mb-5\">";
   include "views/mostrar.php";
